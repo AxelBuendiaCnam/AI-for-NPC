@@ -14,7 +14,7 @@ BT_NODE::State	BT_SEQUENCER::Evaluate(void* data) {
 			return BT_NODE::State::FAILURE;
 		}
 		if (childState == BT_NODE::State::RUNNING) {
-			return BT_NODE::State::FAILURE;
+			return BT_NODE::State::RUNNING;
 		}
 	}
 	return BT_NODE::State::SUCCESS;
@@ -27,7 +27,7 @@ BT_NODE::State	BT_SELECTOR::Evaluate(void* data) {
 			return BT_NODE::State::SUCCESS;
 		}
 		if (childState == BT_NODE::State::RUNNING) {
-			return BT_NODE::State::FAILURE;
+			return BT_NODE::State::RUNNING;
 		}
 	}
 	return BT_NODE::State::FAILURE;
