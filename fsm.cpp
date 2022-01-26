@@ -33,8 +33,10 @@ FSM_STATE* FSM_STATE::Evaluate(void* data) {
 void  FSM_STATE::Behave(void* data) {
     if (BehaviorCbk)
         BehaviorCbk(data);
-    else if (SubFSM)
-        SubFSM->Evaluate(data);
+    else if (SubFSM) {
+      SubFSM->Evaluate(data);
+      SubFSM->Behave(data);
+    }
 }
 //---
 void  FSM_STATE::Reset() {
